@@ -28,14 +28,6 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <p className="read-the-docs2">
-        <a href="https://vitejs.dev/guide/features.html" target="_blank">
-          Vite Docs
-        </a>
-        <a href="https://reactjs.org/docs/getting-started.html" target="_blank">
-          React Docs
-        </a>
-      </p>
     </>
   );
 }
