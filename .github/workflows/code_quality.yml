@@ -6,6 +6,8 @@ on:
       - main
 
 jobs:
+  test:
+  name: Check the source code
   code-quality:
     runs-on: ubuntu-latest
 
