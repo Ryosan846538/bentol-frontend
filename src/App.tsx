@@ -1,12 +1,15 @@
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from "./routes/AppRoutes";
 
-function App() {
-
-  return (
-      <h1 className="text-3xl font-bold underline">
-          Hello world!
-      </h1>
-  );
-}
+const App: React.FC = () => {
+    return (
+        <div className="App">
+            <Router>
+                <AppRoutes />
+            </Router>
+        </div>
+    );
+};
 
 export default App;
