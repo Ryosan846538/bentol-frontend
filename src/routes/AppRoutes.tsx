@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Menu from '../pages/Menu';
+import Booking from '../pages/Booking.tsx';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/home" />
       <Route path="/menu" element={<Menu />} />
       <Route path="/mypage" />
+      <Route path="/booking" element={<Booking />} />
     </Routes>
   );
 };
