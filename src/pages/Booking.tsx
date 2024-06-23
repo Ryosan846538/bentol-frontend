@@ -36,7 +36,7 @@ const Booking: React.FC = () => {
     useState<string>('購入する個数を選択してください');
   return (
     // 要素を全体的に真ん中に配置
-    <div className="px-4 md:px-8 lg:px-16">
+    <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
       <Text fontSize="2xl" as="h1">
         予約
       </Text>
