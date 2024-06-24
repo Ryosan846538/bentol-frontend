@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
-    <div className="px-4 md:px-8 lg:px-16">
+    
+    <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Link to="/Menu">
         <ShopCard

@@ -3,8 +3,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
-  // Button,
   Heading,
   Image,
   Tabs,
@@ -22,8 +20,6 @@ interface ShopMenuCardProps{
 
 const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, waiting }) => {
   return (
-    // <div className="relative h-64 w-64">
-    //   <div className="absolute inset-0">
     <div className="p-2">
         <Card key={cardkey} minW="sm" maxW="md" h="full" variant="solid" colorScheme="emerald">
           <div className="p-2">
@@ -43,15 +39,9 @@ const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, w
               <CardBody>
                 <Heading
                  size="md"
-                 color="black"
+                 color="white"
                 >{title}</Heading>
               </CardBody>
-
-              <CardFooter>
-                {/*  <Button colorScheme="primary" /* onClick={() => window.open(buttonUrl, '_blank')} */}
-                {/*    カゴに入れる*/}
-                {/*  </Button>*/}
-              </CardFooter>
             </TabPanel>
             <TabPanel>
               <CardBody>
@@ -59,7 +49,7 @@ const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, w
                  align="center"
                  as="b"
                  fontSize="2xl"
-                 color="black"
+                 color="white"
                 >{waiting}</Text>
               </CardBody>
             </TabPanel>
@@ -67,8 +57,6 @@ const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, w
           </div>
         </Card>
         </div>
-    //   </div>
-    // </div>
   )
 }
 

@@ -4,8 +4,6 @@ import ShopMenuCard from '../components/ShopMenuCard.tsx';
 import bento1 from '../assets/karaage_bento.jpg';
 import ShopBar from '../components/ShopBar.tsx' ;
 import {
-  //Box,
-  HStack,
   InfiniteScrollArea,
   Loading,
   Text,
@@ -36,7 +34,6 @@ const ShopOrder: React.FC<ShopOrderProps> = ({ time, num }) => {
           orientation="horizontal"
           h="full"
           onLoad={({ index,finish }) => {
-            //console.log("load",index)
 
             setCount((prev) => prev + 50)
           
@@ -55,36 +52,6 @@ const ShopOrder: React.FC<ShopOrderProps> = ({ time, num }) => {
               /> 
           ))}
         </InfiniteScrollArea>
-              {/* <ShopMenuCard
-                imageUrl={bento1}
-                title="にんにく唐揚げ弁当"
-                waiting="1"
-              /> 
-              <ShopMenuCard
-                imageUrl={bento1}
-                title="にんにく唐揚げ弁当"
-                waiting="2"
-              /> 
-              <ShopMenuCard
-                imageUrl={bento1}
-                title="にんにく唐揚げ弁当"
-                waiting="3"
-              /> 
-              <ShopMenuCard
-                imageUrl={bento1}
-                title="にんにく唐揚げ弁当"
-                waiting="4"
-              /> 
-              <ShopMenuCard
-                imageUrl={bento1}
-                title="にんにく唐揚げ弁当"
-                waiting="5"
-              /> 
-              <ShopMenuCard
-                imageUrl={bento1}
-                title="にんにく唐揚げ弁当"
-                waiting="6"
-              />  */}
       </VStack>
     </div>
   )
