@@ -4,6 +4,7 @@ import bento1 from '../assets/karaage_bento.jpg';
 import ShopBar from '../components/ShopBar';
 import { InfiniteScrollArea, Loading, Text, VStack } from '@yamada-ui/react';
 
+
 interface ShopOrderProps {
   time: string;
   num: string;
