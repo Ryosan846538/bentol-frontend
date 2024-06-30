@@ -6,7 +6,7 @@ import Header from './components/Header.tsx';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/bentol-frontend">
         <Header />
         <AppRoutes />
       </Router>
