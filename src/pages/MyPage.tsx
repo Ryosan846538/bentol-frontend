@@ -1,22 +1,16 @@
-import React from 'react';
 import ShopBar from '../components/ShopBar.tsx';
 import MyPageCard from '../components/MyPageCard.tsx';
 import MenuCard from '../components/MenuCard.tsx';
 import karaageBento from '../assets/karaage_bento.jpg';
-import {
-  HStack,
-  VStack
-} from "@yamada-ui/react" ;
+import { HStack, VStack } from '@yamada-ui/react';
 
 const MyPage = () => {
   return (
     <div className="bg-neutral-100">
       <VStack>
-        <ShopBar
-          time="注文状況"
-        />
+        <ShopBar time="注文状況" />
         <div className="p-2">
-        <MyPageCard
+          <MyPageCard
             imageUrl={karaageBento}
             title="にんにく唐揚げ弁当"
             waiting="1"
@@ -24,9 +18,7 @@ const MyPage = () => {
             time="2024/1/1 00:00"
           />
         </div>
-        <ShopBar
-          time="履歴"
-        />
+        <ShopBar time="履歴" />
         <HStack>
           <MenuCard
             imageUrl={karaageBento}
@@ -49,7 +41,7 @@ const MyPage = () => {
         </HStack>
       </VStack>
     </div>
-  )
-}
+  );
+};
 
-export default MyPage
+export default MyPage;
