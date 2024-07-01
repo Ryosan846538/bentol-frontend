@@ -5,8 +5,6 @@ import {
   CardBody,
   CardFooter,
   // Button,
-  VStack,
-  Heading,
   Text,
   Image,
 } from '@yamada-ui/react';
@@ -20,15 +18,31 @@ interface CardProps {
 
 const MenuCard: React.FC<CardProps> = ({ imageUrl, title, description, price }) => {
   return (
-    <Card direction={{ base: 'row', md: 'column' }} overflow="hidden" variant="outline">
-      <Image src={imageUrl} objectFit="cover" maxW={{ base: '30%', md: '100%' }} />
-      <VStack gap="0">
+    <div className="p-2">
+      <Card minW="sm" maxW="md" h="full">
+        <div className="rounded-md bg-emerald-400 shadow-md">
         <CardHeader>
-          <Heading size="md">{title}</Heading>
+          <Image 
+            src={imageUrl}
+            w="full"
+            rounded="md" 
+          />
         </CardHeader>
 
         <CardBody>
-          <Text>{description}</Text>
+          <Text
+            as="b"
+            fontSize="2xl"
+            color="black"
+          >{title}</Text>
+          <Text
+            align="center"
+            as="i"
+            fontSize="xl"
+            color="black"
+          >
+            {description}
+          </Text>
         </CardBody>
 
         <CardFooter>
@@ -39,8 +53,9 @@ const MenuCard: React.FC<CardProps> = ({ imageUrl, title, description, price }) 
             {price}円
           </Text>
         </CardFooter>
-      </VStack>
-    </Card>
+        </div>
+      </Card>
+    </div>
   );
 };
 

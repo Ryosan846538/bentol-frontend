@@ -22,8 +22,8 @@ interface MyPageCardProps {
 const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, time }) => {
   return (
     <div>
-      <Card minW="sm" maxW="md" h="full" variant="solid" colorScheme="emerald">
-        <div className="p-2">
+      <Card minW="sm" maxW="md" h="full">
+        <div className="p-2 bg-emerald-400 rounded-md shadow-md">
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>品物</Tab>
             <Tab>注文情報</Tab>
@@ -34,7 +34,7 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
               </CardHeader>
 
               <CardBody>
-                <Heading size="md" color="white">
+                <Heading size="md" color="black">
                   {title}
                 </Heading>
               </CardBody>

@@ -21,8 +21,8 @@ interface ShopMenuCardProps{
 const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, waiting }) => {
   return (
     <div className="p-2">
-        <Card key={cardkey} minW="sm" maxW="md" h="full" variant="solid" colorScheme="emerald">
-          <div className="p-2">
+        <Card key={cardkey} minW="sm" maxW="md" h="full">
+          <div className="p-2 rounded-md bg-emerald-400 shadow-md">
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>注文</Tab>
             <Tab>お客様番号</Tab>
@@ -39,7 +39,7 @@ const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, w
               <CardBody>
                 <Heading
                  size="md"
-                 color="white"
+                 color="black"
                 >{title}</Heading>
               </CardBody>
             </TabPanel>
@@ -49,7 +49,7 @@ const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, w
                  align="center"
                  as="b"
                  fontSize="2xl"
-                 color="white"
+                 color="black"
                 >{waiting}</Text>
               </CardBody>
             </TabPanel>

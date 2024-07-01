@@ -1,44 +1,68 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Text,
+  VStack
+} from "@yamada-ui/react"
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-gray-900 text-white p-4 flex justify-between items-center shadow-md">
+    <header className="bg-white text-emerald-500 p-4 flex justify-between items-center shadow-md">
       <Link to="/Home" className="text-2xl font-bold">
-        ベントル
+        <VStack>
+          <Text
+            as="b"
+            fontSize="2xl"
+          >
+            ベントル
+          </Text>
+          <Text
+            as="sub"
+          >
+            お弁当予約サービス
+          </Text>
+        </VStack>
       </Link>
       <nav>
         <ul className="flex">
           <li className="ml-6">
             <Link
               to="/Home"
-              className="text-white transition-colors duration-300 hover:text-yellow-500"
+              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
             >
-              ホーム
+              <Text>
+                ホーム
+              </Text>
             </Link>
           </li>
           <li className="ml-6">
             <Link
               to="/Menu"
-              className="text-white transition-colors duration-300 hover:text-yellow-500"
+              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
             >
-              メニュー
+              <Text>
+                メニュー
+              </Text>
             </Link>
           </li>
           <li className="ml-6">
             <Link
               to="/mypage"
-              className="text-white transition-colors duration-300 hover:text-yellow-500"
+              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
             >
-              マイページ
+              <Text>
+                マイページ
+              </Text>
             </Link>
           </li>
           <li className="ml-6">
             <Link
               to="/"
-              className="text-white transition-colors duration-300 hover:text-yellow-500"
+              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
             >
-              ログイン
+              <Text>
+                ログイン
+              </Text>
             </Link>
           </li>
         </ul>
