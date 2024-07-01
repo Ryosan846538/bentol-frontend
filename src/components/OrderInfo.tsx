@@ -16,7 +16,7 @@ const OrderInfo:React.FC<TextProps> = ({ title, description }) => {
         <Text
           as="b"
           fontSize="2xl"
-          color="white"
+          color="black"
         >
           {title}
         </Text>
@@ -24,7 +24,7 @@ const OrderInfo:React.FC<TextProps> = ({ title, description }) => {
           align="center"
           as="b"
           fontSize="xl"
-          color="white"
+          color="black"
         >
           {description}
         </Text>
