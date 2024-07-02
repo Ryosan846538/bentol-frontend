@@ -11,8 +11,8 @@ import ShopHome from '../pages/ShopHome.tsx';
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       <Route path="/home" element={<Home />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/mypage" element={<MyPage />} />
