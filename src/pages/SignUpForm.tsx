@@ -3,7 +3,11 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-type Data = { username: string; email: string; password: string };
+interface Data {
+  username: string;
+  email: string;
+  password: string;
+}
 
 const SignUpForm: React.FC = () => {
   const {
@@ -21,6 +25,7 @@ const SignUpForm: React.FC = () => {
         password: data.password,
         mail: data.email,
       });
+      console.log(response.data);
       alert('アカウントが作成されました');
       navigate('/');
     } catch (error) {

@@ -34,7 +34,7 @@ const Login: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen bg-neutral-100">
       <div className="w-full max-w-lg p-12 space-y-8 bg-white shadow-lg rounded-lg">
         <form onSubmit={handleSubmit}>
-          <VStack align="center" spacing={6}>
+          <VStack align="center">
             <Heading size="lg">ログイン</Heading>
             <div className="w-full">
               <Text fontSize="lg">名前</Text>
