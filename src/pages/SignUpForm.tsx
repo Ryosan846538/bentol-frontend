@@ -20,7 +20,7 @@ const SignUpForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<Data> = async (data) => {
     try {
-      const response = await axios.post('http://133.14.14.14/registration', {
+      const response = await axios.post('http://133.14.14.14:8080/registration', {
         name: data.username,
         password: data.password,
         mail: data.email,
