@@ -14,7 +14,7 @@ const Login: React.FC = () => {
 
     // バックエンドにPOSTリクエストを送る(先ほどgit cloneして、サーバーを立ち上げたもののURL)
     axios
-      .post('http://133.14.14.14/login', {
+      .post('http://133.14.14.14:8080/login', {
         name: name,
         password: password,
       })
