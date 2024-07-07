@@ -6,6 +6,14 @@ import ShopCard from '../components/ShopCard.tsx';
 // import { Link } from 'react-router-dom';
 // import Header from '../components/Header';
 // import Navigation from '../components/Navigation';
+
+interface ApiStore {
+  ID: number;
+  Name: string;
+  CreatedAt: string;
+  UpdatedAt: string;
+}
+
 interface Store {
   id: number;
   name: string;
@@ -15,16 +23,20 @@ const Home: React.FC = () => {
   const [stores, setStores] = useState<Store[]>([]);
 
   useEffect(() => {
-    const fetchStores = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get('http://133.14.14.14:8080/store');
-        console.log(response.data.stores);
-        setStores(response.data.stores);
+        const response = await axios.get<{ stores: ApiStore[] }>('http://133.14.14.14:8080/store');
+        const fetchedStores = response.data.stores.map((store) => ({
+          id: store.ID,
+          name: store.Name,
+        }));
+        console.log(fetchedStores);
+        setStores(fetchedStores);
       } catch (error) {
         console.error('Error fetching shops', error);
       }
     };
-    fetchStores();
+    fetchData();
   }, []);
 
   return (
