@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Card,
   CardHeader,
   CardBody,
@@ -19,42 +20,41 @@ interface CardProps {
 const MenuCard: React.FC<CardProps> = ({ imageUrl, title, description, price }) => {
   return (
     <div className="p-2">
-      <Card minW="sm" maxW="md" h="full">
-        <div className="rounded-md bg-emerald-400 shadow-md">
-        <CardHeader>
-          <Image 
-            src={imageUrl}
-            w="full"
-            rounded="md" 
-          />
-        </CardHeader>
+      <div className="rounded-md bg-white shadow-md">
+        <Card w="md" h="xl">
+          <CardHeader>
+            <Image 
+              src={imageUrl}
+              w="full"
+              rounded="md" 
+            />
+          </CardHeader>
 
-        <CardBody>
-          <Text
-            as="b"
-            fontSize="2xl"
-            color="black"
-          >{title}</Text>
-          <Text
-            align="center"
-            as="i"
-            fontSize="xl"
-            color="black"
-          >
-            {description}
-          </Text>
-        </CardBody>
+          <CardBody>
+            <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
+              {title}
+            </Box>
+            <Text
+              align="center"
+              as="i"
+              fontSize="xl"
+              color="black"
+              lineClamp={3}
+            >
+              {description}
+            </Text>
+          </CardBody>
 
-        <CardFooter>
-          {/*  <Button colorScheme="primary" /* onClick={() => window.open(buttonUrl, '_blank')} */}
-          {/*    カゴに入れる*/}
-          {/*  </Button>*/}
-          <Text fontSize="3xl" as="b">
-            {price}円
-          </Text>
-        </CardFooter>
-        </div>
-      </Card>
+          <CardFooter>
+            {/*  <Button colorScheme="primary" /* onClick={() => window.open(buttonUrl, '_blank')} */}
+            {/*    カゴに入れる*/}
+            {/*  </Button>*/}
+            <Text fontSize="3xl" as="b">
+              {price}円
+            </Text>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 };

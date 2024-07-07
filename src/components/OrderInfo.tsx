@@ -6,7 +6,7 @@ import {
 
 interface TextProps{
     title:string;
-    description:string;
+    description:any;
 }
 
 const OrderInfo:React.FC<TextProps> = ({ title, description }) => {

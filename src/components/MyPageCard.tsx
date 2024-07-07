@@ -14,8 +14,8 @@ import {
 interface MyPageCardProps {
   imageUrl: string;
   title: string;
-  waiting: string;
-  num: string;
+  waiting: number;
+  num: number;
   time: string;
 }
 
@@ -23,7 +23,7 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
   return (
     <div>
       <Card minW="sm" maxW="md" h="full">
-        <div className="p-2 bg-emerald-400 rounded-md shadow-md">
+        <div className="p-2 bg-white rounded-md shadow-md">
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>品物</Tab>
             <Tab>注文情報</Tab>

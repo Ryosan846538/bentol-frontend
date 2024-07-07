@@ -13,8 +13,8 @@ const MyPage = () => {
           <MyPageCard
             imageUrl={karaageBento}
             title="にんにく唐揚げ弁当"
-            waiting="1"
-            num="1"
+            waiting={1}
+            num={1}
             time="2024/1/1 00:00"
           />
         </div>
