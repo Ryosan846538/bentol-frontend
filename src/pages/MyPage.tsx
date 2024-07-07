@@ -10,37 +10,40 @@ const MyPage = () => {
       <VStack>
         <ShopBar time="注文状況" />
         <div className="p-2">
-          <MyPageCard
-            imageUrl={karaageBento}
-            title="にんにく唐揚げ弁当"
-            waiting={1}
-            num={1}
-            time="2024/1/1 00:00"
-          />
+          <Box overflow="scroll">
+            <HStack>
+              <MyPageCard
+                imageUrl={karaageBento}
+                title="にんにく唐揚げ弁当"
+                waiting={1}
+                num={1}
+                time="2024/1/1 00:00"
+              />
+            </HStack>
+          </Box>
         </div>
         <ShopBar time="履歴" />
         <Box overflowX="scroll">
-        <HStack>
-          <MenuCard
-            imageUrl={karaageBento}
-            title="にんにく唐揚げ弁当"
-            description="唐揚げ日本一のにんにく唐揚げ弁当です。ニンニクの匂いがよく効いています"
-            price={600}
-          />
-          <MenuCard
-            imageUrl={karaageBento}
-            title="にんにく唐揚げ弁当"
-            description="唐揚げ日本一のにんにく唐揚げ弁当です。ニンニクの匂いがよく効いています"
-            price={600}
-          />
-          <MenuCard
-            imageUrl={karaageBento}
-            title="にんにく唐揚げ弁当"
-            description="唐揚げ日本一のにんにく唐揚げ弁当です。ニンニクの匂いがよく効いています"
-            price={600}
-          />
-        </HStack>
-
+          <HStack>
+            <MenuCard
+              imageUrl={karaageBento}
+              title="にんにく唐揚げ弁当"
+              description="唐揚げ日本一のにんにく唐揚げ弁当です。ニンニクの匂いがよく効いています"
+              price={600}
+            />
+            <MenuCard
+              imageUrl={karaageBento}
+              title="にんにく唐揚げ弁当"
+              description="唐揚げ日本一のにんにく唐揚げ弁当です。ニンニクの匂いがよく効いています"
+              price={600}
+            />
+            <MenuCard
+              imageUrl={karaageBento}
+              title="にんにく唐揚げ弁当"
+              description="唐揚げ日本一のにんにく唐揚げ弁当です。ニンニクの匂いがよく効いています"
+              price={600}
+            />
+          </HStack>
         </Box>
       </VStack>
     </div>
