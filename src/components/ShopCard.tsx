@@ -1,57 +1,34 @@
 import React from 'react';
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Text,
-  Image,
-} from '@yamada-ui/react';
+import { Card, CardHeader, CardBody, Text } from '@yamada-ui/react';
+import { Link } from 'react-router-dom';
 
-interface ShopCardProps{
-    imageUrl: string;
-    title: string;
-    description: string;
+interface ShopCardProps {
+  id: number;
+  name: string;
 }
 
-const ShopCard: React.FC<ShopCardProps> = ({ imageUrl, title, description }) => {
+const ShopCard: React.FC<ShopCardProps> = ({ id, name }) => {
   return (
     <div className="p-2">
       <Card minW="sm" maxW="md" h="full">
         <div className="rounded-md bg-emerald-400 shadow-md">
-        <CardHeader>
-          <Image 
-            src={imageUrl}
-            w="full"
-            rounded="md" 
-          />
-        </CardHeader>
+          <CardHeader>
+            <Text as="b" fontSize="2xl" color="black">
+              {name}
+            </Text>
+          </CardHeader>
 
-        <CardBody>
-          <Text
-            as="b"
-            fontSize="2xl"
-            color="black"
-          >{title}</Text>
-          <Text
-            align="center"
-            as="i"
-            fontSize="xl"
-            color="black"
-          >
-            {description}
-          </Text>
-        </CardBody>
-
-        <CardFooter>
-          {/*  <Button colorScheme="primary" /* onClick={() => window.open(buttonUrl, '_blank')} */}
-          {/*    カゴに入れる*/}
-          {/*  </Button>*/}
-        </CardFooter>
+          <CardBody>
+            <Link to={`/Menu/${id}`}>
+              <Text align="center" as="i" fontSize="xl" color="black">
+                メニューを見る
+              </Text>
+            </Link>
+          </CardBody>
         </div>
       </Card>
     </div>
-  )
-}
+  );
+};
 
-export default ShopCard
+export default ShopCard;
