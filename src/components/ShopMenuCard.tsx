@@ -15,16 +15,15 @@ import {
 } from '@yamada-ui/react';
 
 interface ShopMenuCardProps{
-    cardkey: number;
     imageUrl: string;
     title: string;
     waiting: number;
 }
 
-const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, waiting }) => {
+const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ imageUrl, title, waiting }) => {
   return (
     <div className="p-2">
-        <Box key={cardkey} w="md" h="full">
+        <Box w="md" h="full">
           <div className="p-2 rounded-md bg-white shadow-md">
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>注文</Tab>

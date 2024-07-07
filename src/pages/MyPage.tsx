@@ -2,7 +2,7 @@ import ShopBar from '../components/ShopBar.tsx';
 import MyPageCard from '../components/MyPageCard.tsx';
 import MenuCard from '../components/MenuCard.tsx';
 import karaageBento from '../assets/karaage_bento.jpg';
-import { HStack, VStack } from '@yamada-ui/react';
+import { Box, HStack, VStack } from '@yamada-ui/react';
 
 const MyPage = () => {
   return (
@@ -19,6 +19,7 @@ const MyPage = () => {
           />
         </div>
         <ShopBar time="履歴" />
+        <Box overflowX="scroll">
         <HStack>
           <MenuCard
             imageUrl={karaageBento}
@@ -39,6 +40,8 @@ const MyPage = () => {
             price={600}
           />
         </HStack>
+
+        </Box>
       </VStack>
     </div>
   );
