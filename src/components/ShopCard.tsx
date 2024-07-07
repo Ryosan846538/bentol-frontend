@@ -19,7 +19,7 @@ const ShopCard: React.FC<ShopCardProps> = ({ id, name }) => {
           </CardHeader>
 
           <CardBody>
-            <Link to={`/Menu/${id}`}>
+            <Link to={`/store/${id}`}>
               <Text align="center" as="i" fontSize="xl" color="black">
                 メニューを見る
               </Text>

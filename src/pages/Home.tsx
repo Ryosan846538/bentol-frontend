@@ -18,6 +18,7 @@ const Home: React.FC = () => {
     const fetchStores = async () => {
       try {
         const response = await axios.get('http://133.14.14.14:8080/store');
+        console.log(response.data.stores);
         setStores(response.data.stores);
       } catch (error) {
         console.error('Error fetching shops', error);
