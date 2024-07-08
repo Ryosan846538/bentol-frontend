@@ -7,6 +7,8 @@ import Menu from '../pages/Menu';
 import MyPage from '../pages/MyPage.tsx';
 import Booking from '../pages/Booking.tsx';
 import ShopHome from '../pages/ShopHome.tsx';
+import StoreSignUp from '../pages/StoreSignUpForm.tsx';
+import StoreLogin from '../pages/StoreLogin.tsx';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -18,6 +20,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/booking" element={<Booking />} />
       <Route path="/shophome" element={<ShopHome />} />
+      <Route path="/store/signup" element={<StoreSignUp />} />
+      <Route path="/store/login" element={<StoreLogin />} />
     </Routes>
   );
 };

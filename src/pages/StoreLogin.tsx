@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { VStack, Text, Input, Button, Heading } from '@yamada-ui/react';
 
-const Login: React.FC = () => {
-  const [name, setName] = useState('');
+const StoreLogin: React.FC = () => {
+  const [StoreName, setStoreName] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -14,15 +14,15 @@ const Login: React.FC = () => {
 
     // バックエンドにPOSTリクエストを送る(先ほどgit cloneして、サーバーを立ち上げたもののURL)
     axios
-      .post('http://133.14.14.14:8080/login', {
-        name: name,
+      .post('http://133.14.14.14:8080/store/login', {
+        store_name: StoreName,
         password: password,
       })
       .then((response) => {
         // ここでユーザー情報をローカルストレージに保存します
         localStorage.setItem('user_id', response.data.user_id);
         alert('ログイン成功！');
-        navigate('/Home');
+        navigate('/ShopHome');
       })
       .catch((error) => {
         console.error(error);
@@ -41,9 +41,9 @@ const Login: React.FC = () => {
               <Input
                 variant="filled"
                 placeholder="your-address@example.com"
-                value={name}
+                value={StoreName}
                 size="lg"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setStoreName(e.target.value)}
               />
             </div>
             <div className="w-full">
@@ -58,16 +58,16 @@ const Login: React.FC = () => {
               />
             </div>
             {error && <p className="text-red-500 text-lg">{error}</p>}
-            <Button colorScheme="emerald" type="submit" size="lg" width="full">
+            <Button colorScheme="blue" type="submit" size="lg" width="full">
               ログイン
             </Button>
             <div className="text-center w-full">
-              <span className="text-gray-600 text-lg">アカウントをお持ちでない方</span>
+              <span className="text-gray-600 text-lg">お店管理用アカウントをお持ちでない方</span>
               <button
-                className="text-emerald-500 hover:text-emerald-600 font-semibold ml-2 text-lg"
+                className="text-blue-500 hover:text-blue-600 font-semibold ml-2 text-lg"
                 type="button"
                 onClick={() => {
-                  navigate('/Signup');
+                  navigate('/store/signup');
                 }}
               >
                 新規登録
@@ -80,4 +80,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default StoreLogin;
