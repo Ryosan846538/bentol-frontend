@@ -73,6 +73,18 @@ const Login: React.FC = () => {
                 新規登録
               </button>
             </div>
+            <div className="text-center w-full">
+              <span className="text-gray-600 text-lg">店舗の方は</span>
+              <button
+                className="text-emerald-500 hover:text-emerald-600 font-semibold ml-2 text-lg"
+                type="button"
+                onClick={() => {
+                  navigate('/store/login');
+                }}
+              >
+                こちら
+              </button>
+            </div>
           </VStack>
         </form>
       </div>
