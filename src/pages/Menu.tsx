@@ -54,7 +54,7 @@ const Menu: React.FC = () => {
   useEffect(() => {
     const fetchStoreData = async () => {
       try {
-        const response = await axios.get<ApiResponse>(`http://133.14.14.14:8080/store/${id}`);
+        const response = await axios.get<ApiResponse>(`http://133.14.14.14:8090/store/${id}`);
         const fetchedStore: Store = {
           id: response.data.store.ID,
           name: response.data.store.Name,
