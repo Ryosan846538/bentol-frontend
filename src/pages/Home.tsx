@@ -25,7 +25,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<{ stores: ApiStore[] }>('http://133.14.14.14:8080/store');
+        const response = await axios.get<{ stores: ApiStore[] }>('http://133.14.14.14:8090/store');
         const fetchedStores = response.data.stores.map((store) => ({
           id: store.ID,
           name: store.Name,

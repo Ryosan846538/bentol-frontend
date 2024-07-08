@@ -20,7 +20,7 @@ const StoreSignUpForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<Data> = async (data) => {
     try {
-      const response = await axios.post('http://133.14.14.14:8080/store/register', {
+      const response = await axios.post('http://133.14.14.14:8090/store/register', {
         store_name: data.store_name,
         password: data.password,
         mail: data.email,
