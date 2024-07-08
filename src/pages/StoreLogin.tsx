@@ -79,7 +79,7 @@ const StoreLogin: React.FC = () => {
                 className="text-blue-500 hover:text-blue-600 font-semibold ml-2 text-lg"
                 type="button"
                 onClick={() => {
-                  navigate('/store/login');
+                  navigate('/login');
                 }}
               >
                 こちら
