@@ -10,6 +10,8 @@ import {
   // Image,
 } from '@yamada-ui/react';
 
+import { Link } from 'react-router-dom';
+
 interface MenuCardProps {
   ID: number;
   Name: string;
@@ -22,6 +24,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
     <div className="p-2">
       <div className="rounded-md bg-white shadow-md">
         <Card minW="sm" maxW="md" h="full">
+          <Link to="/booking" />
           <CardHeader>
             {/* <Image src={imageUrl} w="full" rounded="md" /> */}
             <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
