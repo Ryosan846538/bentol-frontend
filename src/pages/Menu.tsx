@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Heading, Wrap } from '@yamada-ui/react';
+import { Heading } from '@yamada-ui/react';
 // import { useParams } from 'react-router-dom';
 import MenuCard from '../components/MenuCard';
 // import karaage1 from '../assets/karaage1.jpg';
