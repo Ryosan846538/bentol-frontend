@@ -30,7 +30,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
           </CardHeader>
 
           <CardBody>
-            <Text align="center" as="i" fontSize="xl" color="black" lineClamp={3}>
+            <Text align="center" as="i" fontSize="xl" color="black">
               {Description}
             </Text>
           </CardBody>
