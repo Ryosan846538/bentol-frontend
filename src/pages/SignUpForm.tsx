@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 interface Data {
   username: string;
@@ -17,6 +19,11 @@ const SignUpForm: React.FC = () => {
   } = useForm<Data>();
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const onSubmit: SubmitHandler<Data> = async (data) => {
     try {
@@ -77,7 +84,7 @@ const SignUpForm: React.FC = () => {
             {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email.message}</p>}
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-gray-700 text-lg font-semibold mb-3" htmlFor="password">
               パスワード
             </label>
@@ -92,6 +99,36 @@ const SignUpForm: React.FC = () => {
                 required: { value: true, message: 'パスワードを入力してください' },
               })}
             />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>
+            )}
+          </div> */}
+          <div>
+            <label className="block text-gray-700 text-lg font-semibold mb-3" htmlFor="password">
+              パスワード
+            </label>
+            <div className="relative">
+              <input
+                className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${errors.password ? 'border-red-500' : ''}`}
+                id="password"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="パスワード"
+                {...register('password', {
+                  required: { value: true, message: 'パスワードを入力してください' },
+                })}
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-3 top-3 text-lg text-gray-700"
+              >
+                {showPassword ? (
+                  <FontAwesomeIcon icon={faEye} />
+                ) : (
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                )}
+              </button>
+            </div>
             {errors.password && (
               <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>
             )}
