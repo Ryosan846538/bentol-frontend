@@ -76,18 +76,16 @@ const Menu: React.FC = () => {
       </Heading>
       <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Wrap gap="md">
-            <Link to="/booking" />
-            {menues.map((menu) => (
-              <MenuCard
-                key={menu.id}
-                ID={menu.id}
-                Name={menu.name}
-                Price={menu.price}
-                Description={menu.description}
-              />
-            ))}
-          </Wrap>
+          <Link to="/booking" />
+          {menues.map((menu) => (
+            <MenuCard
+              key={menu.id}
+              ID={menu.id}
+              Name={menu.name}
+              Price={menu.price}
+              Description={menu.description}
+            />
+          ))}
         </div>
       </div>
     </div>
