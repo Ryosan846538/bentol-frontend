@@ -27,35 +27,23 @@ interface Menu {
   updatedAt: string;
 }
 
-interface ApiStore {
-  ID: number;
-  Name: string;
-  CreatedAt: string;
-  UpdatedAt: string;
-}
-
-interface Store {
-  id: number;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
 interface ApiResponse {
   menues: ApiMenu[];
-  store: ApiStore;
 }
 
 const Menu: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [store, setStore] = useState<Store | null>(null); // nullを許容する
+  const { id } = useParams<{ id: string }>(); // useParamsを使用してURLからidを取得
   const [menues, setMenues] = useState<Menu[]>([]);
 
   useEffect(() => {
     const fetchStoreData = async () => {
       try {
         const response = await axios.get<ApiResponse>(`http://133.14.14.14:8090/store/${id}`);
-        console.log('API response:', response.data);
+        console.log('API response:', response.data); // レスポンスをログに出力
+
+        if (!response.data.menues) {
+          throw new Error('Menues not found in response');
+        }
 
         const fetchedMenues: Menu[] = response.data.menues.map((menu) => ({
           id: menu.ID,
@@ -66,14 +54,9 @@ const Menu: React.FC = () => {
           updatedAt: menu.UpdatedAt,
         }));
 
-        const fetchedStore: Store = {
-          id: Number(id), // useParamsから取得したidはstring型なので、number型に変換
-          name: response.data.store.Name,
-          createdAt: response.data.store.CreatedAt,
-          updatedAt: response.data.store.UpdatedAt,
-        };
+        // ID順にソート
+        fetchedMenues.sort((a, b) => a.id - b.id);
 
-        setStore(fetchedStore);
         setMenues(fetchedMenues);
       } catch (error) {
         console.error('Error fetching store', error);
@@ -89,7 +72,7 @@ const Menu: React.FC = () => {
   return (
     <div>
       <Heading className="ml-16" as="h2" size="lg" isTruncated>
-        {store?.name}
+        メニュー一覧
       </Heading>
       <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
