@@ -22,35 +22,35 @@ interface MenuCardProps {
 const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
   return (
     <div className="p-2">
-      <div className="rounded-md bg-white shadow-md">
-        <Card minW="sm" maxW="md" h="full">
-          <CardHeader>
-            {/* <Image src={imageUrl} w="full" rounded="md" /> */}
-            <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
-              {Name}
-            </Box>
-          </CardHeader>
+      {/* <div className="rounded-md bg-white shadow-md"> */}
+      <Card minW="sm" maxW="md" h="full">
+        <CardHeader>
+          {/* <Image src={imageUrl} w="full" rounded="md" /> */}
+          <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
+            {Name}
+          </Box>
+        </CardHeader>
 
-          <CardBody>
-            <Text align="center" as="i" fontSize="xl" color="black">
-              {Description}
-            </Text>
-          </CardBody>
+        <CardBody>
+          <Text align="center" as="i" fontSize="xl" color="black">
+            {Description}
+          </Text>
+        </CardBody>
 
-          <CardFooter className="flex justify-between items-center">
-            <Text fontSize="3xl" as="b">
-              {Price}円
-            </Text>
-            <Link
-              to="/booking"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-              予約する
-            </Link>
-          </CardFooter>
-        </Card>
-      </div>
+        <CardFooter className="flex justify-between items-center">
+          <Text fontSize="3xl" as="b">
+            {Price}円
+          </Text>
+          <Link
+            to="/booking"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            予約する
+          </Link>
+        </CardFooter>
+      </Card>
     </div>
+    // </div>
   );
 };
 
