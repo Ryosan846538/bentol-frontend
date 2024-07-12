@@ -68,9 +68,9 @@ const Menu: React.FC = () => {
 
         const fetchedStore: Store = {
           id: Number(id), // useParamsから取得したidはstring型なので、number型に変換
-          name: 'initial store name',
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
+          name: response.data.store.Name,
+          createdAt: response.data.store.CreatedAt,
+          updatedAt: response.data.store.UpdatedAt,
         };
 
         setStore(fetchedStore);
