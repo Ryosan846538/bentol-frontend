@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Heading } from '@yamada-ui/react';
+import { 
+  Heading,
+  Wrap
+ } from '@yamada-ui/react';
 // import { useParams } from 'react-router-dom';
 import MenuCard from '../components/MenuCard';
 // import karaage1 from '../assets/karaage1.jpg';
@@ -89,16 +92,18 @@ const Menu: React.FC = () => {
       </Heading>
       <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Link to="/booking" />
-          {menues.map((menu) => (
-            <MenuCard
-              key={menu.id}
-              ID={menu.id}
-              Name={menu.name}
-              Price={menu.price}
-              Description={menu.description}
-            />
-          ))}
+          <Wrap gap="md">
+            <Link to="/booking" />
+            {menues.map((menu) => (
+              <MenuCard
+                key={menu.id}
+                ID={menu.id}
+                Name={menu.name}
+                Price={menu.price}
+                Description={menu.description}
+              />
+            ))}
+          </Wrap>
         </div>
       </div>
     </div>
