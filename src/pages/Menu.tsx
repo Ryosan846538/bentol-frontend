@@ -55,6 +55,7 @@ const Menu: React.FC = () => {
     const fetchStoreData = async () => {
       try {
         const response = await axios.get<ApiResponse>(`http://133.14.14.14:8090/store/${id}`);
+        console.log('API response:', response.data);
 
         const fetchedMenues: Menu[] = response.data.menues.map((menu) => ({
           id: menu.ID,
@@ -66,11 +67,12 @@ const Menu: React.FC = () => {
         }));
 
         const fetchedStore: Store = {
-          id: response.data.store.ID,
-          name: response.data.store.Name,
-          createdAt: response.data.store.CreatedAt,
-          updatedAt: response.data.store.UpdatedAt,
+          id: Number(id), // useParamsから取得したidはstring型なので、number型に変換
+          name: 'initial store name',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
         };
+
         setStore(fetchedStore);
         setMenues(fetchedMenues);
       } catch (error) {
