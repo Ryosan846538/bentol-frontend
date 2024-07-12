@@ -9,6 +9,7 @@ interface Data {
   username: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
 const SignUpForm: React.FC = () => {
@@ -16,16 +17,27 @@ const SignUpForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<Data>();
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [confirmShowPassword, setConfirmShowPassword] = useState<boolean>(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  // パスワード確認の表示/非表示を切り替える関数
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmShowPassword(!confirmShowPassword);
+  };
+
   const onSubmit: SubmitHandler<Data> = async (data) => {
+    if (data.password !== data.confirmPassword) {
+      setError('パスワードが一致しません');
+      return;
+    }
     try {
       const response = await axios.post('http://133.14.14.14:8090/registration', {
         name: data.username,
@@ -84,25 +96,6 @@ const SignUpForm: React.FC = () => {
             {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email.message}</p>}
           </div>
 
-          {/* <div>
-            <label className="block text-gray-700 text-lg font-semibold mb-3" htmlFor="password">
-              パスワード
-            </label>
-            <input
-              className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
-                errors.password ? 'border-red-500' : ''
-              }`}
-              id="password"
-              type="password"
-              placeholder="パスワード"
-              {...register('password', {
-                required: { value: true, message: 'パスワードを入力してください' },
-              })}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>
-            )}
-          </div> */}
           <div>
             <label className="block text-gray-700 text-lg font-semibold mb-3" htmlFor="password">
               パスワード
@@ -131,6 +124,41 @@ const SignUpForm: React.FC = () => {
             </div>
             {errors.password && (
               <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label
+              className="block text-gray-700 text-lg font-semibold mb-3"
+              htmlFor="confirmPassword"
+            >
+              パスワード（確認）
+            </label>
+            <div className="relative">
+              <input
+                className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${errors.confirmPassword ? 'border-red-500' : ''}`}
+                id="confirmPassword"
+                type={confirmShowPassword ? 'text' : 'password'}
+                placeholder="パスワード（確認）"
+                {...register('confirmPassword', {
+                  required: { value: true, message: 'パスワード（確認）を入力してください' },
+                  validate: (value) => value === watch('password') || 'パスワードが一致しません',
+                })}
+              />
+              <button
+                type="button"
+                onClick={toggleConfirmPasswordVisibility}
+                className="absolute right-3 top-3 text-lg text-gray-700"
+              >
+                {confirmShowPassword ? (
+                  <FontAwesomeIcon icon={faEye} />
+                ) : (
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                )}
+              </button>
+            </div>
+            {errors.confirmPassword && (
+              <p className="text-red-500 text-sm mt-2">{errors.confirmPassword.message}</p>
             )}
           </div>
 
