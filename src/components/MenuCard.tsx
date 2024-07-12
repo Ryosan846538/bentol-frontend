@@ -21,7 +21,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
   return (
     <div className="p-2">
       <div className="rounded-md bg-white shadow-md">
-        <Card w="md" h="xl">
+        <Card minW="sm" maxW="md" h="full">
           <CardHeader>
             {/* <Image src={imageUrl} w="full" rounded="md" /> */}
             <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
