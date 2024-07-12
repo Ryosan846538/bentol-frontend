@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { VStack, Text, Input, Button, Heading } from '@yamada-ui/react';
 
 const Login: React.FC = () => {
-  const [name, setName] = useState('');
+  const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -15,7 +15,7 @@ const Login: React.FC = () => {
     // バックエンドにPOSTリクエストを送る(先ほどgit cloneして、サーバーを立ち上げたもののURL)
     axios
       .post('http://133.14.14.14:8090/login', {
-        name: name,
+        mail: mail,
         password: password,
       })
       .then((response) => {
@@ -41,9 +41,9 @@ const Login: React.FC = () => {
               <Input
                 variant="filled"
                 placeholder="your-address@example.com"
-                value={name}
+                value={mail}
                 size="lg"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setMail(e.target.value)}
               />
             </div>
             <div className="w-full">
