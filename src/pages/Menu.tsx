@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Heading } from '@yamada-ui/react';
 // import { useParams } from 'react-router-dom';
 import MenuCard from '../components/MenuCard';
@@ -76,7 +76,6 @@ const Menu: React.FC = () => {
       </Heading>
       <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Link to="/booking" />
           {menues.map((menu) => (
             <MenuCard
               key={menu.id}
