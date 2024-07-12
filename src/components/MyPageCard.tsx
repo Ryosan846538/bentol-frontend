@@ -1,4 +1,4 @@
-import OrderInfo from '../components/OrderInfo.tsx';
+
 import {
   Card,
   CardHeader,
@@ -8,14 +8,15 @@ import {
   Tabs,
   Tab,
   TabPanel,
+  Text,
   VStack,
 } from '@yamada-ui/react';
 
 interface MyPageCardProps {
   imageUrl: string;
   title: string;
-  waiting: string;
-  num: string;
+  waiting: number;
+  num: number;
   time: string;
 }
 
@@ -23,7 +24,7 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
   return (
     <div>
       <Card minW="sm" maxW="md" h="full">
-        <div className="p-2 bg-emerald-400 rounded-md shadow-md">
+        <div className="p-2 bg-white rounded-md shadow-md">
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>品物</Tab>
             <Tab>注文情報</Tab>
@@ -42,9 +43,51 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
             <TabPanel>
               <CardBody>
                 <VStack>
-                  <OrderInfo title="お客様番号" description={waiting} />
-                  <OrderInfo title="予約時間" description={time} />
-                  <OrderInfo title="予約個数" description={num} />
+                  <Text
+                    as="b"
+                    fontSize="2xl"
+                    color="black"
+                  >
+                    お客様番号
+                  </Text>
+                  <Text
+                    align="center"
+                    as="b"
+                    fontSize="xl"
+                    color="black"
+                  >
+                    {waiting}
+                  </Text>
+                  <Text
+                    as="b"
+                    fontSize="2xl"
+                    color="black"
+                  >
+                    予約時間
+                  </Text>
+                  <Text
+                    align="center"
+                    as="b"
+                    fontSize="xl"
+                    color="black"
+                  >
+                    {time}
+                  </Text>
+                  <Text
+                    as="b"
+                    fontSize="2xl"
+                    color="black"
+                  >
+                    予約個数
+                  </Text>
+                  <Text
+                    align="center"
+                    as="b"
+                    fontSize="xl"
+                    color="black"
+                  >
+                    {num}
+                  </Text>
                 </VStack>
               </CardBody>
             </TabPanel>

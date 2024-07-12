@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Card,
   CardHeader,
   CardBody,
@@ -19,17 +20,17 @@ interface MenuCardProps {
 const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
   return (
     <div className="p-2">
-      <Card minW="sm" maxW="md" h="full">
-        <div className="rounded-md bg-emerald-400 shadow-md">
+      <div className="rounded-md bg-white shadow-md">
+        <Card w="md" h="xl">
           <CardHeader>
             {/* <Image src={imageUrl} w="full" rounded="md" /> */}
-            <Text as="b" fontSize="2xl" color="black">
+            <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
               {Name}
-            </Text>
+            </Box>
           </CardHeader>
 
           <CardBody>
-            <Text align="center" as="i" fontSize="xl" color="black">
+            <Text align="center" as="i" fontSize="xl" color="black" lineClamp={3}>
               {Description}
             </Text>
           </CardBody>
@@ -42,8 +43,8 @@ const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
               {Price}円
             </Text>
           </CardFooter>
-        </div>
-      </Card>
+        </Card>
+      </div>
     </div>
   );
 };
