@@ -9,6 +9,7 @@ import Booking from '../pages/Booking.tsx';
 import ShopHome from '../pages/ShopHome.tsx';
 import StoreSignUp from '../pages/StoreSignUpForm.tsx';
 import StoreLogin from '../pages/StoreLogin.tsx';
+import Redirect from '../pages/Redirect.tsx';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/shophome" element={<ShopHome />} />
       <Route path="/store/signup" element={<StoreSignUp />} />
       <Route path="/store/login" element={<StoreLogin />} />
+      <Route path="/purchased" element={<Redirect />} />
     </Routes>
   );
 };
