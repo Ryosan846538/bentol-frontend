@@ -66,7 +66,7 @@ const Menu: React.FC = () => {
       }
     };
     fetchStoreData();
-  }, [id]);
+  }, [id, navigate]);
 
   // if (!store) {
   //   return <div>Loading...</div>;
