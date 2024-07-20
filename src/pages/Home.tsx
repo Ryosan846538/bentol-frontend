@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Heading } from '@yamada-ui/react';
 import ShopCard from '../components/ShopCard.tsx';
 // import shop1 from '../assets/Shop1.jpeg';
-// import { Link } from 'react-router-dom';
+// import { Link, Wrap } from 'react-router-dom';
 // import Header from '../components/Header';
 // import Navigation from '../components/Navigation';
 
@@ -46,11 +46,13 @@ const Home: React.FC = () => {
       </Heading>
       <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* {shops.map((shop) => (
-          <Link to={`/Menu/${id}`} key={shop.id}>
-            <ShopCard imageUrl={shop.imageUrl} title={shop.title} description={shop.description} />
-          </Link>
-        ))} */}
+          {/* <Wrap gap="md">
+          {shops.map((shop) => (
+            <Link to={`/Menu/${id}`} key={shop.id}>
+              <ShopCard imageUrl={shop.imageUrl} title={shop.title} description={shop.description} />
+            </Link>
+          ))} 
+          </Wrap> */}
           {stores.map((store) => (
             <ShopCard key={store.id} id={store.id} name={store.name} />
           ))}

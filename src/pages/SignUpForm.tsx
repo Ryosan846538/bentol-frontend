@@ -63,7 +63,7 @@ const SignUpForm: React.FC = () => {
               名前
             </label>
             <input
-              className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+              className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 errors.username ? 'border-red-500' : ''
               }`}
               id="username"
@@ -83,7 +83,7 @@ const SignUpForm: React.FC = () => {
               メール
             </label>
             <input
-              className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+              className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 errors.email ? 'border-red-500' : ''
               }`}
               id="email"
@@ -102,7 +102,7 @@ const SignUpForm: React.FC = () => {
             </label>
             <div className="relative">
               <input
-                className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${errors.password ? 'border-red-500' : ''}`}
+                className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.password ? 'border-red-500' : ''}`}
                 id="password"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="パスワード"
@@ -136,7 +136,7 @@ const SignUpForm: React.FC = () => {
             </label>
             <div className="relative">
               <input
-                className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 ${errors.confirmPassword ? 'border-red-500' : ''}`}
+                className={`shadow appearance-none border rounded-lg w-full py-3 px-4 text-lg text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.confirmPassword ? 'border-red-500' : ''}`}
                 id="confirmPassword"
                 type={confirmShowPassword ? 'text' : 'password'}
                 placeholder="パスワード（確認）"
@@ -166,7 +166,7 @@ const SignUpForm: React.FC = () => {
 
           <div className="flex flex-col space-y-4">
             <button
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg text-lg focus:outline-none focus:shadow-outline transition duration-300 ease-in-out w-full text-center"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg text-lg focus:outline-none focus:shadow-outline transition duration-300 ease-in-out w-full text-center"
               type="submit"
             >
               新規登録
@@ -174,7 +174,7 @@ const SignUpForm: React.FC = () => {
             <div className="text-center">
               <span className="text-gray-600">すでにアカウントをお持ちですか？</span>
               <button
-                className="text-emerald-500 hover:text-emerald-600 font-semibold ml-2"
+                className="text-orange-500 hover:text-orange-600 font-semibold ml-2"
                 type="button"
                 onClick={() => {
                   navigate('/');
