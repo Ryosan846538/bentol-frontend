@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Heading } from '@yamada-ui/react';
 import ShopCard from '../components/ShopCard.tsx';
+import { useNavigate } from 'react-router-dom';
 // import shop1 from '../assets/Shop1.jpeg';
 // import { Link, Wrap } from 'react-router-dom';
 // import Header from '../components/Header';
@@ -21,6 +22,7 @@ interface Store {
 
 const Home: React.FC = () => {
   const [stores, setStores] = useState<Store[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,10 +36,11 @@ const Home: React.FC = () => {
         setStores(fetchedStores);
       } catch (error) {
         console.error('Error fetching shops', error);
+        navigate('/');
       }
     };
     fetchData();
-  }, []);
+  }, [navigate]);
 
   return (
     <div>
