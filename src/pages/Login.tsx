@@ -58,13 +58,13 @@ const Login: React.FC = () => {
               />
             </div>
             {error && <p className="text-red-500 text-lg">{error}</p>}
-            <Button colorScheme="emerald" type="submit" size="lg" width="full">
+            <Button colorScheme="orange" type="submit" size="lg" width="full">
               ログイン
             </Button>
             <div className="text-center w-full">
               <span className="text-gray-600 text-lg">アカウントをお持ちでない方</span>
               <button
-                className="text-emerald-500 hover:text-emerald-600 font-semibold ml-2 text-lg"
+                className="text-orange-500 hover:text-orange-600 font-semibold ml-2 text-lg"
                 type="button"
                 onClick={() => {
                   navigate('/Signup');
@@ -76,7 +76,7 @@ const Login: React.FC = () => {
             <div className="text-center w-full">
               <span className="text-gray-600 text-lg">店舗の方は</span>
               <button
-                className="text-emerald-500 hover:text-emerald-600 font-semibold ml-2 text-lg"
+                className="text-orange-500 hover:text-orange-600 font-semibold ml-2 text-lg"
                 type="button"
                 onClick={() => {
                   navigate('/store/login');

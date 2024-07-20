@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardHeader, CardBody, Text } from '@yamada-ui/react';
+import { Box, Card, CardHeader, CardBody, Text } from '@yamada-ui/react';
 import { Link } from 'react-router-dom';
 
 interface ShopCardProps {
@@ -11,11 +11,11 @@ const ShopCard: React.FC<ShopCardProps> = ({ id, name }) => {
   return (
     <div className="p-2">
       <Card minW="sm" maxW="md" h="full">
-        <div className="rounded-md bg-emerald-400 shadow-md">
+        <div className="rounded-md bg-orange-400 shadow-md">
           <CardHeader>
-            <Text as="b" fontSize="2xl" color="black">
+            <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="orange.500" color="white">
               {name}
-            </Text>
+            </Box>
           </CardHeader>
 
           <CardBody>

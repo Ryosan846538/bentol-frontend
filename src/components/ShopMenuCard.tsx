@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Card,
   CardHeader,
   CardBody,
@@ -21,8 +22,8 @@ interface ShopMenuCardProps{
 const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, waiting }) => {
   return (
     <div className="p-2">
-        <Card key={cardkey} minW="sm" maxW="md" h="full">
-          <div className="p-2 rounded-md bg-emerald-400 shadow-md">
+        <Card key={cardkey} minW="sm" maxW="md" h="full" bgGradient="linear(to-br,orange.100,orange.500)">
+          <div className="p-2 rounded-md shadow-md">
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>注文</Tab>
             <Tab>お客様番号</Tab>
@@ -37,10 +38,11 @@ const ShopMenuCard: React.FC<ShopMenuCardProps> = ({ cardkey, imageUrl, title, w
               </CardHeader>
 
               <CardBody>
-                <Heading
-                 size="md"
-                 color="black"
-                >{title}</Heading>
+                <Heading size="md">
+                  <Box as="b" fontSize="2xl" p="sm" color="black">
+                    {title}
+                  </Box>
+                </Heading>
               </CardBody>
             </TabPanel>
             <TabPanel>

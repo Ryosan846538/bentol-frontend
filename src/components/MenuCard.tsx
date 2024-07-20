@@ -23,10 +23,10 @@ const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
   return (
     <div className="p-2">
       {/* <div className="rounded-md bg-white shadow-md"> */}
-      <Card minW="sm" maxW="md" h="full">
+      <Card minW="sm" maxW="md" h="full" bgGradient="linear(to-br,orange.100,orange.500)">
         <CardHeader>
           {/* <Image src={imageUrl} w="full" rounded="md" /> */}
-          <Box as="b" fontSize="2xl" p="sm" rounded="md" bg="emerald.500" color="white">
+          <Box as="b" fontSize="2xl" p="sm" rounded="md" color="white">
             {Name}
           </Box>
         </CardHeader>

@@ -7,7 +7,7 @@ import {
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white text-emerald-500 p-4 flex justify-between items-center shadow-md">
+    <header className="bg-white text-orange-500 p-4 flex justify-between items-center shadow-md">
       <Link to="/Home" className="text-2xl font-bold">
         <VStack>
           <Text
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
           <li className="ml-6">
             <Link
               to="/Home"
-              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
+              className="text-orange-500 transition-colors duration-300 hover:text-yellow-500"
             >
               <Text>
                 ホーム
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
           <li className="ml-6">
             <Link
               to="/Menu"
-              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
+              className="text-orange-500 transition-colors duration-300 hover:text-yellow-500"
             >
               <Text>
                 メニュー
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
           <li className="ml-6">
             <Link
               to="/mypage"
-              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
+              className="text-orange-500 transition-colors duration-300 hover:text-yellow-500"
             >
               <Text>
                 マイページ
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           <li className="ml-6">
             <Link
               to="/"
-              className="text-emerald-500 transition-colors duration-300 hover:text-yellow-500"
+              className="text-orange-500 transition-colors duration-300 hover:text-yellow-500"
             >
               <Text>
                 ログイン

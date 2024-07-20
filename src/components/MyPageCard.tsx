@@ -1,5 +1,6 @@
 
 import {
+  Box,
   Card,
   CardHeader,
   CardBody,
@@ -23,8 +24,9 @@ interface MyPageCardProps {
 const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, time }) => {
   return (
     <div>
-      <Card minW="sm" maxW="md" h="full">
-        <div className="p-2 bg-white rounded-md shadow-md">
+      <Card minW="sm" maxW="md" p="2" h="full" bgGradient="linear(to-br,orange.100,orange.500)">
+      {/* <Card minW="sm" maxW="md" p="2" h="full" bg="white"> */}
+        {/* <div className="p-2 bg-white rounded-md shadow-md"> */}
           <Tabs variant="rounded-subtle" colorScheme="gray">
             <Tab>品物</Tab>
             <Tab>注文情報</Tab>
@@ -35,8 +37,10 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
               </CardHeader>
 
               <CardBody>
-                <Heading size="md" color="black">
-                  {title}
+                <Heading size="md">
+                  <Box as="b" fontSize="2xl" p="sm" color="black">
+                    {title}
+                  </Box>
                 </Heading>
               </CardBody>
             </TabPanel>
@@ -45,7 +49,7 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
                 <VStack>
                   <Text
                     as="b"
-                    fontSize="2xl"
+                    fontSize="xl"
                     color="black"
                   >
                     お客様番号
@@ -53,14 +57,14 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
                   <Text
                     align="center"
                     as="b"
-                    fontSize="xl"
+                    fontSize="2xl"
                     color="black"
                   >
                     {waiting}
                   </Text>
                   <Text
                     as="b"
-                    fontSize="2xl"
+                    fontSize="xl"
                     color="black"
                   >
                     予約時間
@@ -68,14 +72,14 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
                   <Text
                     align="center"
                     as="b"
-                    fontSize="xl"
+                    fontSize="2xl"
                     color="black"
                   >
                     {time}
                   </Text>
                   <Text
                     as="b"
-                    fontSize="2xl"
+                    fontSize="xl"
                     color="black"
                   >
                     予約個数
@@ -83,7 +87,7 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
                   <Text
                     align="center"
                     as="b"
-                    fontSize="xl"
+                    fontSize="2xl"
                     color="black"
                   >
                     {num}
@@ -92,7 +96,7 @@ const MyPageCard: React.FC<MyPageCardProps> = ({ imageUrl, title, waiting, num, 
               </CardBody>
             </TabPanel>
           </Tabs>
-        </div>
+        {/* </div> */}
       </Card>
     </div>
   );
