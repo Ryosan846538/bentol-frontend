@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Heading } from '@yamada-ui/react';
+import { useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 import MenuCard from '../components/MenuCard';
 // import karaage1 from '../assets/karaage1.jpg';
@@ -34,6 +35,7 @@ interface ApiResponse {
 const Menu: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // useParamsを使用してURLからidを取得
   const [menues, setMenues] = useState<Menu[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchStoreData = async () => {
@@ -60,10 +62,11 @@ const Menu: React.FC = () => {
         setMenues(fetchedMenues);
       } catch (error) {
         console.error('Error fetching store', error);
+        navigate('/');
       }
     };
     fetchStoreData();
-  }, [id]);
+  }, [id, navigate]);
 
   // if (!store) {
   //   return <div>Loading...</div>;
