@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             <Link to={`/Menu/${id}`} key={shop.id}>
               <ShopCard imageUrl={shop.imageUrl} title={shop.title} description={shop.description} />
             </Link>
-          ))} 
+          ))}
           </Wrap> */}
           {stores.map((store) => (
             <ShopCard key={store.id} id={store.id} name={store.name} />
