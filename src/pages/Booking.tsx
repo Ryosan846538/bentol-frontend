@@ -43,12 +43,20 @@ const Booking: React.FC = () => {
       return;
     }
 
+    // selectedDateのタイムゾーンオフセットを取得（分単位）
+    const timezoneOffset = selectedDate.getTimezoneOffset() * 60000; // 1分=60000ミリ秒
+    // オフセットを考慮して日付を調整
+    const adjustedDate = new Date(selectedDate.getTime() - timezoneOffset);
+    // 調整した日付をISO文字列にしてから日付部分のみを抽出
+    const formattedDate = adjustedDate.toISOString().split('T')[0];
+
+    // paymentDataのdateプロパティを更新
     const paymentData = {
       user_id: 1, // このユーザーIDは適切な方法で取得する必要があります
       store_id: parseInt(store_id!),
       menue_id: parseInt(menu_id!),
       time: selectedTime,
-      date: selectedDate.toISOString().split('T')[0],
+      date: formattedDate, // 調整した日付を使用
       count: parseInt(selectedQuantity),
     };
 
@@ -139,5 +147,5 @@ const Booking: React.FC = () => {
     </Container>
   );
 };
-
+x;
 export default Booking;
