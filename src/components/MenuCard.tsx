@@ -17,9 +17,10 @@ interface MenuCardProps {
   Name: string;
   Description: string;
   Price: number;
+  StoreID: number;
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
+const MenuCard: React.FC<MenuCardProps> = ({ ID, Name, Description, Price, StoreID }) => {
   return (
     <div className="p-2">
       {/* <div className="rounded-md bg-white shadow-md"> */}
@@ -42,7 +43,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ Name, Description, Price }) => {
             {Price}円
           </Text>
           <Link
-            to="/booking"
+            to={`/booking/${StoreID}/${ID}`}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             予約する

@@ -86,6 +86,7 @@ const Menu: React.FC = () => {
               Name={menu.name}
               Price={menu.price}
               Description={menu.description}
+              StoreID={Number(id)}
             />
           ))}
         </div>
