@@ -83,9 +83,9 @@ const Booking: React.FC = () => {
             {selectedTime}
           </MenuButton>
           <MenuList>
-            <MenuItem onClick={() => setSelectedTime('12:00')}>12:00</MenuItem>
+            <MenuItem onClick={() => setSelectedTime('12:10')}>12:10</MenuItem>
+            <MenuItem onClick={() => setSelectedTime('12:20')}>12:20</MenuItem>
             <MenuItem onClick={() => setSelectedTime('12:30')}>12:30</MenuItem>
-            <MenuItem onClick={() => setSelectedTime('13:00')}>13:00</MenuItem>
           </MenuList>
         </Menu>
 
