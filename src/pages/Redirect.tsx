@@ -26,7 +26,7 @@ const Redirect: React.FC = () => {
         <h2 className="text-2xl font-semibold text-center text-gray-800 mt-4">
           購入が完了しました
         </h2>
-        <p className="text-center text-gray-600 mt-2">またのご利用をお待ちしております。</p>
+        <p className="text-center text-gray-600 mt-2">13:10にとりに来てください</p>
         <div className="mt-6 flex justify-center">
           <button
             className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600 transition duration-200"
