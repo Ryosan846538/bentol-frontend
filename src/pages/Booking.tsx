@@ -59,6 +59,7 @@ const Booking: React.FC = () => {
       window.location.href = paymentUrl;
     } catch (error) {
       console.error('Payment request failed:', error);
+      console.log(paymentData);
       alert('支払い処理中にエラーが発生しました。');
     }
   };
