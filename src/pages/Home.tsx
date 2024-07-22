@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Heading } from '@yamada-ui/react';
 import ShopCard from '../components/ShopCard.tsx';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import shop1 from '../assets/Shop1.jpeg';
 // import { Link, Wrap } from 'react-router-dom';
 // import Header from '../components/Header';
@@ -22,25 +22,32 @@ interface Store {
 
 const Home: React.FC = () => {
   const [stores, setStores] = useState<Store[]>([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<{ stores: ApiStore[] }>('http://133.14.14.14:8090/store');
-        const fetchedStores = response.data.stores.map((store) => ({
-          id: store.ID,
-          name: store.Name,
-        }));
-        console.log(fetchedStores);
-        setStores(fetchedStores);
-      } catch (error) {
-        console.error('Error fetching shops', error);
-        navigate('/');
-      }
-    };
-    fetchData();
-  }, [navigate]);
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get<{ stores: ApiStore[] }>(
+            'http://133.14.14.14:8090/store'
+          );
+          const fetchedStores = response.data.stores.map((store) => ({
+            id: store.ID,
+            name: store.Name,
+          }));
+          console.log(fetchedStores);
+          setStores(fetchedStores);
+        } catch (error) {
+          console.error('Error fetching shops', error);
+          // navigate('/');
+        }
+      };
+      fetchData();
+    },
+    [
+      /*navigate*/
+    ]
+  );
 
   return (
     <div>

@@ -1,5 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { DatePicker } from '@yamada-ui/calendar';
 import {
   Text,
@@ -13,81 +14,100 @@ import {
   Card,
   CardHeader,
   CardBody,
-  // CardFooter,
   Image,
   VStack,
+  Container,
+  Center,
 } from '@yamada-ui/react';
 import { Icon as FontAwesomeIcon } from '@yamada-ui/fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import paypay from '../assets/paypay.jpg';
 import creditcard from '../assets/visa_mastercard.jpg';
-// import axios from 'axios';
 
 const Booking: React.FC = () => {
-  // const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
-  //
-  // const handleDateChange = async (date: Date | null) => {
-  //   setSelectedDate(date);
-  //
-  // };
+  const { store_id, menu_id } = useParams<{ store_id: string; menu_id: string }>();
+
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [payValue, setPayValue] = useState<string>('PayPay');
   const [selectedTime, setSelectedTime] = useState<string>('受け取る時間を選択してください');
   const [selectedQuantity, setSelectedQuantity] =
     useState<string>('購入する個数を選択してください');
+
+  const handleSubmit = async () => {
+    if (
+      !selectedDate ||
+      selectedTime === '受け取る時間を選択してください' ||
+      selectedQuantity === '購入する個数を選択してください'
+    ) {
+      alert('全ての項目を選択してください。');
+      return;
+    }
+
+    const paymentData = {
+      user_id: 1, // このユーザーIDは適切な方法で取得する必要があります
+      store_id: parseInt(store_id!),
+      menue_id: parseInt(menu_id!),
+      time: selectedTime,
+      date: selectedDate.toISOString().split('T')[0],
+      count: parseInt(selectedQuantity),
+    };
+
+    try {
+      const response = await axios.post('http://133.14.14.14:8090/payment', paymentData);
+      const paymentUrl = response.data.payment_url;
+      window.location.href = paymentUrl;
+    } catch (error) {
+      console.error('Payment request failed:', error);
+      alert('支払い処理中にエラーが発生しました。');
+    }
+  };
+
   return (
-    // 要素を全体的に真ん中に配置
-    <div className="bg-neutral-100 px-4 md:px-8 lg:px-16">
-      <Text fontSize="2xl" as="h1">
-        予約
-      </Text>
-      <DatePicker /* onChange={handleDateChange} */ />
-      <Text fontSize="2xl" as="h1">
-        時間
-      </Text>
-      <Menu>
-        <MenuButton
-          as={Button}
-          // colorSheme="emerald"
-          rightIcon={<FontAwesomeIcon size="xs" icon={faChevronDown} />}
-        >
-          {selectedTime}
-        </MenuButton>
+    <Container maxW="container.md" centerContent>
+      <VStack align="stretch" width="100%">
+        <Center>
+          <Text fontSize="2xl" as="h1">
+            予約
+          </Text>
+        </Center>
 
-        <MenuList>
-          {/*<MenuItem>12:00</MenuItem>*/}
-          {/*<MenuItem>12:30</MenuItem>*/}
-          {/*<MenuItem>13:00</MenuItem>*/}
-          <MenuItem onClick={() => setSelectedTime('12:00')}>12:00</MenuItem>
-          <MenuItem onClick={() => setSelectedTime('12:30')}>12:30</MenuItem>
-          <MenuItem onClick={() => setSelectedTime('13:00')}>13:00</MenuItem>
-        </MenuList>
-      </Menu>
-      <Text fontSize="2xl" as="h1">
-        個数
-      </Text>
-      <Menu>
-        <MenuButton
-          as={Button}
-          // colorSheme="emerald"
-          rightIcon={<FontAwesomeIcon size="xs" icon={faChevronDown} />}
-        >
-          {selectedQuantity}
-        </MenuButton>
+        <DatePicker onChange={(date) => setSelectedDate(date || null)} />
 
-        <MenuList>
-          <MenuItem onClick={() => setSelectedQuantity('1')}>1</MenuItem>
-          <MenuItem onClick={() => setSelectedQuantity('2')}>2</MenuItem>
-          <MenuItem onClick={() => setSelectedQuantity('3')}>3</MenuItem>
-          <MenuItem onClick={() => setSelectedQuantity('4')}>4</MenuItem>
-        </MenuList>
-      </Menu>
-      <Text fontSize="2xl" as="h1">
-        支払い方法
-      </Text>
-      <RadioGroup value={payValue} onChange={(value) => setPayValue(value)}>
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-          <Card variant="outline" size="md">
-            <VStack gap="0">
+        <Text fontSize="2xl" as="h2">
+          時間
+        </Text>
+        <Menu>
+          <MenuButton as={Button} rightIcon={<FontAwesomeIcon size="xs" icon={faChevronDown} />}>
+            {selectedTime}
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => setSelectedTime('12:00')}>12:00</MenuItem>
+            <MenuItem onClick={() => setSelectedTime('12:30')}>12:30</MenuItem>
+            <MenuItem onClick={() => setSelectedTime('13:00')}>13:00</MenuItem>
+          </MenuList>
+        </Menu>
+
+        <Text fontSize="2xl" as="h2">
+          個数
+        </Text>
+        <Menu>
+          <MenuButton as={Button} rightIcon={<FontAwesomeIcon size="xs" icon={faChevronDown} />}>
+            {selectedQuantity}
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => setSelectedQuantity('1')}>1</MenuItem>
+            <MenuItem onClick={() => setSelectedQuantity('2')}>2</MenuItem>
+            <MenuItem onClick={() => setSelectedQuantity('3')}>3</MenuItem>
+            <MenuItem onClick={() => setSelectedQuantity('4')}>4</MenuItem>
+          </MenuList>
+        </Menu>
+
+        <Text fontSize="2xl" as="h2">
+          支払い方法
+        </Text>
+        <RadioGroup value={payValue} onChange={(value) => setPayValue(value)}>
+          <VStack align="stretch">
+            <Card variant="outline">
               <CardHeader>
                 <Radio value="PayPay" size="lg">
                   PayPay
@@ -96,23 +116,26 @@ const Booking: React.FC = () => {
               <CardBody>
                 <Image src={paypay} size="sm" objectFit="contain" />
               </CardBody>
-            </VStack>
-          </Card>
-          <Card variant="outline" size="md">
-            <VStack gap="0">
+            </Card>
+            <Card variant="outline">
               <CardHeader>
                 <Radio value="creditCard" size="lg">
-                  VISA・MaterCard
+                  VISA・MasterCard
                 </Radio>
               </CardHeader>
               <CardBody>
                 <Image src={creditcard} size="sm" objectFit="contain" />
               </CardBody>
-            </VStack>
-          </Card>
-        </div>
-      </RadioGroup>
-    </div>
+            </Card>
+          </VStack>
+        </RadioGroup>
+
+        <Button colorScheme="blue" onClick={handleSubmit}>
+          予約を確定する
+        </Button>
+      </VStack>
+    </Container>
   );
 };
+
 export default Booking;
