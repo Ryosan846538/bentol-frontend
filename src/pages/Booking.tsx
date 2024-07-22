@@ -54,6 +54,7 @@ const Booking: React.FC = () => {
 
     try {
       const response = await axios.post('http://133.14.14.14:8090/payment', paymentData);
+      console.log(paymentData);
       const paymentUrl = response.data.payment_url;
       window.location.href = paymentUrl;
     } catch (error) {
