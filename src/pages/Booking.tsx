@@ -147,5 +147,5 @@ const Booking: React.FC = () => {
     </Container>
   );
 };
-x;
+
 export default Booking;
