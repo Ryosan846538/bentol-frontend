@@ -33,33 +33,42 @@ const Booking: React.FC = () => {
   const [selectedQuantity, setSelectedQuantity] =
     useState<string>('購入する個数を選択してください');
 
-  const handleSubmit = async () => {
-    if (
-      !selectedDate ||
-      selectedTime === '受け取る時間を選択してください' ||
-      selectedQuantity === '購入する個数を選択してください'
-    ) {
-      alert('全ての項目を選択してください。');
-      return;
-    }
-
-    const paymentData = {
-      user_id: 1, // このユーザーIDは適切な方法で取得する必要があります
-      store_id: parseInt(store_id!),
-      menue_id: parseInt(menu_id!),
-      time: selectedTime,
-      date: selectedDate.toISOString().split('T')[0],
-      count: parseInt(selectedQuantity),
+    const handleSubmit = async () => {
+      if (
+        !selectedDate ||
+        selectedTime === '受け取る時間を選択してください' ||
+        selectedQuantity === '購入する個数を選択してください'
+      ) {
+        alert('全ての項目を選択してください。');
+        return;
+      }
+    
+      const paymentData: PaymentData = {
+        user_id: getUserID(), // ここで適切な方法でユーザーIDを取得します
+        store_id: parseInt(store_id!, 10),
+        menue_id: parseInt(menu_id!, 10),
+        time: selectedTime,
+        date: selectedDate.toISOString().split('T')[0],
+        count: parseInt(selectedQuantity, 10),
+      };
+    
+      console.log('Sending payment data:', paymentData);
+    
+      try {
+        const response = await axios.post('http://133.14.14.14:8090/payment', paymentData);
+        console.log('Response:', response);
+        const paymentUrl = response.data.payment_url;
+        window.location.href = paymentUrl;
+      } catch (error) {
+        console.error('Payment request failed:', error);
+        if (axios.isAxiosError(error) && error.response) {
+          console.error('Error response data:', error.response.data);
+          alert(`支払い処理中にエラーが発生しました: ${error.response.data.error || '不明なエラー'}`);
+        } else {
+          alert('支払い処理中にエラーが発生しました。');
+        }
+      }
     };
-
-    try {
-      const response = await axios.post('http://133.14.14.14:8090/payment', paymentData);
-      const paymentUrl = response.data.payment_url;
-      window.location.href = paymentUrl;
-    } catch (error) {
-      console.error('Payment request failed:', error);
-      alert('支払い処理中にエラーが発生しました。');
-    }
   };
 
   return (
